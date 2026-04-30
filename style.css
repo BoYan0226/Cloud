@@ -1,0 +1,352 @@
+@import url("https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Instrument Sans";
+  color: white;
+  overflow-x: hidden;
+  background: #6f91a7;
+}
+
+html,
+body {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
+}
+
+.page {
+  position: relative;
+  width: 100%;
+  min-height: 200vh;
+  background: linear-gradient(
+    to bottom,
+    #3e5075 0%,
+    #455978 34%,
+    #2d3447 100%
+  );
+  overflow: hidden;
+}
+
+.background-floating-cloud {
+  --bg-scale: 1;
+  --bg-scroll-y: 0px;
+
+  position: fixed;
+  width: 4000px;
+  height: 1500px;
+  left: -20%;
+  top: -8%;
+
+  background-image: url("images/background-cloud.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+
+  opacity: 0.2;
+  pointer-events: none;
+  z-index: 0;
+
+  animation: slowBackgroundCloud 30s ease-in-out infinite alternate;
+  transform-origin: center center;
+  will-change: transform;
+}
+
+@keyframes slowBackgroundCloud {
+  0% {
+    transform: translate3d(
+      -60px,
+      calc(0px + var(--bg-scroll-y)),
+      0
+    ) scale(var(--bg-scale));
+  }
+
+  50% {
+    transform: translate3d(
+      90px,
+      calc(-25px + var(--bg-scroll-y)),
+      0
+    ) scale(calc(var(--bg-scale) * 1.03));
+  }
+
+  100% {
+    transform: translate3d(
+      180px,
+      calc(18px + var(--bg-scroll-y)),
+      0
+    ) scale(var(--bg-scale));
+  }
+}
+
+.first-screen {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 900px;
+  z-index: 2;
+}
+
+.second-screen {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 900px;
+  z-index: 2;
+}
+
+.top-info {
+  position: absolute;
+  top: 35px;
+  left: 45px;
+  right: 45px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 40px;
+  letter-spacing: 1px;
+  z-index: 5;
+}
+
+.cloud {
+  position: absolute;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.top-cloud {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.45s ease;
+  will-change: transform;
+}
+
+.top-cloud.hidden-cloud {
+  opacity: 0;
+}
+
+.cloud-one {
+  width: 1300px;
+  height: 480px;
+  left: 0%;
+  top: 10%;
+  background-image: url("images/cloud1.png");
+}
+
+.cloud-two {
+  width: 1300px;
+  height: 480px;
+  right: 5%;
+  top: 7%;
+  background-image: url("images/cloud2.png");
+}
+
+.cloud-three {
+  width: 1300px;
+  height: 480px;
+  left: 23%;
+  top: 30%;
+  background-image: url("images/cloud3.png");
+}
+
+.cloud-text {
+  width: 440px;
+  margin: 0;
+  color: #3b3b3b;
+  font-size: 22px;
+  line-height: 1.25;
+  text-align: left;
+  word-break: break-word;
+  font-family: "Instrument Sans";
+}
+
+.cloud-one .cloud-text {
+  position: relative;
+  left: 15px;
+  top: 30px;
+  width: 400px;
+}
+
+.cloud-two .cloud-text {
+  position: relative;
+  left: 40px;
+  top: -5px;
+  width: 400px;
+}
+
+.cloud-three .cloud-text {
+  position: relative;
+  left: 10px;
+  top: -50px;
+  width: 400px;
+}
+
+.question {
+  position: absolute;
+  top: 85%;
+  width: 100%;
+  text-align: center;
+  transition: opacity 0.15s linear;
+  will-change: opacity;
+}
+
+.question p {
+  margin: 0;
+  margin-top: -70px;
+  font-size: 24px;
+  color: rgba(255, 255, 255, 0.88);
+  font-family: "Instrument Sans";
+}
+
+.arrow {
+  font-size: 54px;
+  line-height: 2;
+  color: rgba(255, 255, 255, 0.9);
+  font-family: "Instrument Sans";
+  filter: blur(1px);
+}
+
+.input-cloud-wrapper {
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translateX(-50%) scale(1.6);
+  width: 1300px;
+  height: 480px;
+  opacity: 0;
+  transform-origin: center center;
+  will-change: transform, opacity;
+}
+
+.input-cloud {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-image: url("images/cloud1.png");
+}
+
+textarea {
+  position: absolute;
+  left: 450px;
+  top: 150px;
+  width: 400px;
+  height: 120px;
+  border: none;
+  outline: none;
+  resize: none;
+  background: transparent;
+  color: #222;
+  font-family: "Instrument Sans";
+  font-size: 22px;
+  line-height: 1.25;
+}
+
+textarea::placeholder {
+  color: rgba(51, 51, 51, 0.45);
+  font-family: "Instrument Sans";
+}
+
+button {
+  position: absolute;
+  right: 350px;
+  bottom: 130px;
+
+  width: 100px;
+  height: 50px;
+
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 999px;
+
+  color: rgba(255, 255, 255, 0.95);
+  font-family: "Instrument Sans";
+  font-size: 24px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+
+  cursor: pointer;
+
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.38),
+    rgba(255, 255, 255, 0.16)
+  );
+
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  box-shadow:
+    0 10px 22px rgba(139, 139, 139, 0.28),
+    inset 0 1px 2px rgba(255, 255, 255, 0.55),
+    inset 0 -8px 18px rgba(255, 255, 255, 0.08);
+
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+button:hover {
+  transform: translateY(-3px) scale(1.03);
+
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.48),
+    rgba(255, 255, 255, 0.22)
+  );
+
+  box-shadow:
+    0 16px 34px rgba(0, 0, 0, 0.28),
+    inset 0 1px 2px rgba(255, 255, 255, 0.65),
+    inset 0 -8px 18px rgba(255, 255, 255, 0.1);
+}
+
+button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.flying-cloud {
+  position: absolute;
+  z-index: 30;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  pointer-events: none;
+  filter: drop-shadow(0 18px 28px rgba(0, 0, 0, 0.25));
+}
+
+.flying-cloud-text {
+  position: absolute;
+  margin: 0;
+  color: #222;
+  font-size: 22px;
+  line-height: 1.25;
+  word-break: break-word;
+  font-family: "Instrument Sans";
+}
+
+.top-info,
+.question p,
+.arrow {
+  text-shadow: 0 4px 12px rgba(124, 124, 124, 0.35);
+}
+
+.cloud-text,
+textarea,
+.flying-cloud-text {
+  text-shadow: 0 2px 5px rgba(126, 126, 126, 0.5);
+}

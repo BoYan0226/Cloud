@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Cloud Message Board</title>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <main class="page">
+    <div class="background-floating-cloud"></div>
+
+    <section class="first-screen">
+      <header class="top-info">
+        <div id="timeText">--:--</div>
+        <div id="temperatureText">--°C</div>
+      </header>
+
+      <div class="cloud top-cloud cloud-one" id="topCloud0">
+        <p class="cloud-text"></p>
+      </div>
+
+      <div class="cloud top-cloud cloud-two" id="topCloud1">
+        <p class="cloud-text"></p>
+      </div>
+
+      <div class="cloud top-cloud cloud-three" id="topCloud2">
+        <p class="cloud-text"></p>
+      </div>
+
+      <div class="question">
+        <p>Is there something you want to share?</p>
+        <div class="arrow">↓</div>
+      </div>
+    </section>
+
+    <section class="second-screen">
+      <div class="input-cloud-wrapper">
+        <div class="cloud input-cloud" id="inputCloud">
+          <textarea id="messageInput" placeholder="Write something..."></textarea>
+          <button id="sendBtn">Send</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="script.js"></script>
+</body>
+</html>
