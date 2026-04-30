@@ -140,7 +140,7 @@ body::-webkit-scrollbar {
 .cloud-one {
   width: 1300px;
   height: 480px;
-  left: 0%;
+  left: -20%;
   top: 10%;
   background-image: url("images/cloud1.png");
 }
@@ -148,16 +148,16 @@ body::-webkit-scrollbar {
 .cloud-two {
   width: 1300px;
   height: 480px;
-  right: 5%;
-  top: 7%;
+  right: -5%;
+  top: 3%;
   background-image: url("images/cloud2.png");
 }
 
 .cloud-three {
   width: 1300px;
   height: 480px;
-  left: 23%;
-  top: 30%;
+  left: 30%;
+  top: 35%;
   background-image: url("images/cloud3.png");
 }
 
